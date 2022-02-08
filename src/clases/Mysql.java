@@ -112,8 +112,8 @@ public class Mysql {
 
 			while (resultSet.next()) {
 				System.out.println("");
-				System.out.println("Codigo pieza: " + resultSet.getString("Codigo") + " " + "Nombre: "
-						+ resultSet.getString("Nombre"));
+				System.out.println("DNI Investigador: " + resultSet.getString("DNI") + " " + "Nombre: "
+						+ resultSet.getString("NomApels") + " Facultad: " + resultSet.getInt("Facultad"));
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -123,13 +123,13 @@ public class Mysql {
 	}
 
 	// METODO QUE LIMPIA TABLAS MYSQL
-	public static void deleteRecord(String db, String table_name, int codigo) {
+	public static void deleteRecord(String db, String table_name, String dni) {
 		try {
 			String Querydb = "USE " + db + ";";
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 
-			String Query = "DELETE FROM " + table_name + " WHERE Codigo = \"" + codigo + "\"";
+			String Query = "DELETE FROM " + table_name + " WHERE DNI = \"" + dni + "\"";
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);
 

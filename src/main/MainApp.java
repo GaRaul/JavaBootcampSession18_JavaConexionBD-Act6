@@ -11,19 +11,21 @@ public class MainApp {
 	public static void main(String[] args) {
 
 		Mysql.openConnection();
-		Mysql.createDB("PiezasYProveedores");
+		Mysql.createDB("Investigadores");
 
-		Mysql.createTable("PiezasYProveedores", "Piezas", Inserciones.tablaPiezasCampos);
-		Mysql.createTable("PiezasYProveedores", "Proveedores", Inserciones.tablaProveedoresCampos);
-		Mysql.createTable("PiezasYProveedores", "Suministra", Inserciones.tablaSuministraCampos);
+		Mysql.createTable("Investigadores", "Facultad", Inserciones.tablaFacultadCampos);
+		Mysql.createTable("Investigadores", "Equipos", Inserciones.tablaEquiposCampos);
+		Mysql.createTable("Investigadores", "Investigadores", Inserciones.tablaInvestigadoresCampos);
+		Mysql.createTable("Investigadores", "Reserva", Inserciones.tablaReservaCampos);
 
-		Mysql.insertData("PiezasYProveedores", "Piezas", Inserciones.insercionTablaPiezas);
-		Mysql.insertData("PiezasYProveedores", "Proveedores", Inserciones.insercionTablaProveedores);
-		Mysql.insertData("PiezasYProveedores", "Suministra", Inserciones.insercionTablaSuministra);
+		Mysql.insertData("Investigadores", "Facultad", Inserciones.insercionTablaFacultad);
+		Mysql.insertData("Investigadores", "Equipos", Inserciones.insercionTablaEquipos);
+		Mysql.insertData("Investigadores", "Investigadores", Inserciones.insercionTablaInvestigadores);
+		Mysql.insertData("Investigadores", "Reserva", Inserciones.insercionTablaReserva);
 
-		Mysql.getValues("PiezasYProveedores", "Piezas");
-		Mysql.deleteRecord("PiezasYProveedores", "Piezas", 1);
-		Mysql.getValues("PiezasYProveedores", "Piezas");
+		Mysql.getValues("Investigadores", "Investigadores");
+		Mysql.deleteRecord("Investigadores", "Investigadores", "12345678");
+		Mysql.getValues("Investigadores", "Investigadores");
 		Mysql.closeConnection();
 	}
 
